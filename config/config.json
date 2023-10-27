@@ -1,0 +1,10 @@
+{
+    "development": {
+      "username": "root",
+      "password": "qwertyawsd",
+      "database": "spendlyzer",
+      "host": "localhost",
+      "dialect": "mysql"
+    }
+  }
+  
