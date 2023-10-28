@@ -22,7 +22,7 @@ async function getAccountByUsername(req, res) {
       logger.info(account);
       const recurringExpenses = await RecurringExpenseController.getRecurringExpensesByAccountId(account.id)
       const extraExpenses = await ExtraExpenseController.getExtraExpensesByAccountId(account.id)
-      const investment = await InvestmentController.getInvestmentByAccountId(account.id)
+      const investments = await InvestmentController.getInvestmentByAccountId(account.id)
 
       const accountResponse = {
         account: {
@@ -34,7 +34,7 @@ async function getAccountByUsername(req, res) {
         },
         recurringExpenses,
         extraExpenses,
-        investment
+        investments
       };
 
       res.json(accountResponse);
