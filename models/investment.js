@@ -2,8 +2,8 @@
 const { DataTypes, Sequelize } = require('sequelize');
 const sequelize = require('../config/sequelize'); // Import your Sequelize instance
 
-// Define the "RecurringExpense" model
-const RecurringExpense = sequelize.define('RecurringExpense', {
+// Define the "Investment" model
+const Investment = sequelize.define('Investment', {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
@@ -22,9 +22,9 @@ const RecurringExpense = sequelize.define('RecurringExpense', {
     allowNull: false,
   },
 }, {
-  tableName: 'recurring_expenses', // Specify the table name here
+  tableName: 'investments', // Specify the table name here
   timestamps: true, // Enable createdAt and updatedAt columns
 });
 
 
-module.exports = RecurringExpense;
+module.exports = Investment;
