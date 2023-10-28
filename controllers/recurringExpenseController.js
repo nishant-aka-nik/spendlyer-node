@@ -1,33 +1,6 @@
 const RecurringExpense = require('../models/recurringExpense');
 const logger = require('../middleware/logger');
 
-
-// Fetch all recurring expenses
-async function getAll(req, res) {
-  try {
-    const allExpenses = await RecurringExpense.findAll();
-    logger.info(allExpenses);
-    res.json(allExpenses);
-  } catch (err) {
-    res.status(500).json({ error: 'Internal server error', message: JSON.stringify(err) });
-  }
-}
-
-// Fetch a specific recurring expense by ID
-async function getById(req, res) {
-  const id = req.params.id;
-  try {
-    const expense = await findByPk(id);
-    if (expense) {
-      res.json(expense);
-    } else {
-      res.status(404).json({ error: 'Expense not found' });
-    }
-  } catch (err) {
-    res.status(500).json({ error: 'Internal server error' });
-  }
-}
-
 async function getRecurringExpensesByAccountId(accountIdToFind) {
   try {
     const recurringExpenses = await RecurringExpense.findAll({
@@ -59,7 +32,5 @@ async function getRecurringExpensesByAccountId(accountIdToFind) {
 }
 
 module.exports = {
-  getAll,
-  getById,
   getRecurringExpensesByAccountId
 };

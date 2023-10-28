@@ -596,3 +596,79 @@ info: [{"id":1,"name":"Expense 1","amount":100.5,"createdAt":"2023-10-28T03:35:1
   }
 ]
 [2023-10-28T01:02:43.971Z] [32minfo[39m: No investment found for the account.
+[2023-10-28T01:13:30.983Z] [32minfo[39m: Server is running on port 3000
+[2023-10-28T01:13:38.601Z] [32minfo[39m: Server is running on port 3000
+[2023-10-28T01:13:42.176Z] [32minfo[39m: Server is running on port 3000
+[2023-10-28T01:13:48.561Z] [32minfo[39m: Server is running on port 3000
+[2023-10-28T01:13:59.823Z] [32minfo[39m: Server is running on port 3000
+[2023-10-28T01:14:02.418Z] [32minfo[39m: Server is running on port 3000
+[2023-10-28T01:14:03.816Z] [32minfo[39m: Server is running on port 3000
+[2023-10-28T01:14:13.296Z] [32minfo[39m: Server is running on port 3000
+[2023-10-28T01:14:35.284Z] [32minfo[39m: Server is running on port 3000
+[2023-10-28T01:14:54.293Z] [32minfo[39m: Server is running on port 3000
+[2023-10-28T01:40:02.591Z] [32minfo[39m: Server is running on port 3000
+[2023-10-28T01:43:54.959Z] [32minfo[39m: {
+  "id": 1,
+  "name": "nishant",
+  "username": "kuro",
+  "salary": 10000,
+  "createdAt": "2023-10-28T05:25:36.000Z",
+  "updatedAt": "2023-10-28T05:25:36.000Z"
+}
+[2023-10-28T01:44:58.463Z] [32minfo[39m: {
+  "id": 1,
+  "name": "nishant",
+  "username": "kuro",
+  "salary": 10000,
+  "createdAt": "2023-10-28T05:25:36.000Z",
+  "updatedAt": "2023-10-28T05:25:36.000Z"
+}
+[2023-10-28T01:44:58.471Z] [32minfo[39m: Recurring Expenses:
+[2023-10-28T01:44:58.475Z] [32minfo[39m: [
+  {
+    "id": 1,
+    "name": "extra 2",
+    "account_id": 1,
+    "amount": 10000,
+    "createdAt": "2023-10-28T05:32:50.000Z",
+    "updatedAt": "2023-10-28T05:32:50.000Z"
+  },
+  {
+    "id": 2,
+    "name": "extra 2",
+    "account_id": 1,
+    "amount": 10000,
+    "createdAt": "2023-10-28T05:32:51.000Z",
+    "updatedAt": "2023-10-28T05:32:51.000Z"
+  }
+]
+[2023-10-28T01:44:58.478Z] [32minfo[39m: [
+  {
+    "id": 1,
+    "name": "mf sip",
+    "account_id": 1,
+    "amount": 10000,
+    "createdAt": "2023-10-28T01:43:54.000Z",
+    "updatedAt": "2023-10-28T01:43:54.000Z"
+  }
+]
+[2023-10-28T01:45:35.937Z] [32minfo[39m: Server is running on port 3000
+[2023-10-28T01:45:42.758Z] [32minfo[39m: Server is running on port 3000
+[2023-10-28T01:45:43.940Z] [32minfo[39m: Server is running on port 3000
+[2023-10-28T01:45:52.475Z] [32minfo[39m: Server is running on port 3000
+[2023-10-28T01:45:54.806Z] [32minfo[39m: Server is running on port 3000
+[2023-10-28T01:45:57.354Z] [32minfo[39m: Server is running on port 3000
+[2023-10-28T01:45:58.914Z] [32minfo[39m: Server is running on port 3000
+[2023-10-28T01:46:03.229Z] [32minfo[39m: Server is running on port 3000
+[2023-10-28T01:46:06.216Z] [32minfo[39m: Server is running on port 3000
+[2023-10-28T01:46:08.033Z] [32minfo[39m: Server is running on port 3000
+[2023-10-28T01:46:09.773Z] [32minfo[39m: Server is running on port 3000
+[2023-10-28T01:46:11.157Z] [32minfo[39m: Server is running on port 3000
+[2023-10-28T01:46:14.531Z] [32minfo[39m: Server is running on port 3000
+[2023-10-28T01:46:20.796Z] [32minfo[39m: Server is running on port 3000
+[2023-10-28T01:46:27.299Z] [32minfo[39m: Server is running on port 3000
+[2023-10-28T01:46:33.408Z] [32minfo[39m: Server is running on port 3000
+[2023-10-28T01:46:39.138Z] [32minfo[39m: Server is running on port 3000
+[2023-10-28T01:46:41.196Z] [32minfo[39m: Server is running on port 3000
+[2023-10-28T01:46:42.259Z] [32minfo[39m: Server is running on port 3000
+[2023-10-28T01:46:53.932Z] [32minfo[39m: Server is running on port 3000

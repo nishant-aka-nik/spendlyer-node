@@ -27,7 +27,4 @@ const Account = sequelize.define('Account', {
   timestamps: true, // Enable createdAt and updatedAt columns
 });
 
-// Define the association (one-to-many)
-Account.hasMany(RecurringExpense, { as: 'recurring_expenses', foreignKey: 'account_id' });
-
 module.exports = Account;

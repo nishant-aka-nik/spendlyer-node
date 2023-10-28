@@ -11,12 +11,14 @@ const entities = {
     Investment: require('./models/investment')
 };
 
+//------------------------model associations - start ---------------------------------------
 entities.Account.hasMany(entities.RecurringExpense, { foreignKey: 'account_id' });
 entities.Account.hasMany(entities.ExtraExpense, { foreignKey: 'account_id' });
 entities.Account.hasMany(entities.Investment, { foreignKey: 'account_id' });
 entities.RecurringExpense.belongsTo(entities.Account, { foreignKey: 'account_id' });
 entities.ExtraExpense.belongsTo(entities.Account, { foreignKey: 'account_id' });
 entities.Investment.belongsTo(entities.Account, { foreignKey: 'account_id' });
+//------------------------ model associations - end ----------------------------------------
 
 app.use(bodyParser.json());
 
