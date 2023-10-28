@@ -21,6 +21,10 @@ const Investment = sequelize.define('Investment', {
     type: DataTypes.FLOAT,
     allowNull: false,
   },
+  type: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
 }, {
   tableName: 'investments', // Specify the table name here
   timestamps: true, // Enable createdAt and updatedAt columns

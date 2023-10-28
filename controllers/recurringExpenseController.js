@@ -31,6 +31,19 @@ async function getRecurringExpensesByAccountId(accountIdToFind) {
   }
 }
 
+async function addRecurringExpense(req, res) {
+  try {
+    const { name, amount } = req.body;
+    const recurringExpense = await RecurringExpense.create({ account_id: req.account_id, name, amount });
+    res.status(201).json(recurringExpense);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Failed to create recurring expense' });
+  }
+
+}
+
 module.exports = {
-  getRecurringExpensesByAccountId
+  getRecurringExpensesByAccountId,
+  addRecurringExpense
 };
