@@ -1,9 +1,9 @@
-const Account = require('../models/account');
-const logger = require('../middleware/logger');
-const RecurringExpense = require('../models/recurringExpense');
-const RecurringExpenseController = require('./recurringExpenseController');
-const ExtraExpenseController = require('./extraExpenseController');
-const InvestmentController = require('./investmentController');
+import accountModel from '../models/account.js';
+import logger from '../middleware/logger.js';
+import RecurringExpense from '../models/recurringExpense.js';
+import { getRecurringExpensesByAccountId } from './recurringExpenseController.js';
+import { getExtraExpensesByAccountId } from './extraExpenseController.js';
+import { getInvestmentByAccountId } from './investmentController.js';
 
 // Fetch an account by username
 async function getAccountByUsername(req, res) {
@@ -14,15 +14,20 @@ async function getAccountByUsername(req, res) {
   }
 
   try {
-    const account = await Account.findOne({
+    const account = await accountModel.findOne({
       where: { username: usernameToFind }
     });
 
     if (account) {
       logger.info(account);
-      const recurringExpenses = await RecurringExpenseController.getRecurringExpensesByAccountId(account.id)
-      const extraExpenses = await ExtraExpenseController.getExtraExpensesByAccountId(account.id)
-      const investments = await InvestmentController.getInvestmentByAccountId(account.id)
+      const recurringExpenses = await getRecurringExpensesByAccountId(account.id)
+      const extraExpenses = await getExtraExpensesByAccountId(account.id)
+      const investments = await getInvestmentByAccountId(account.id)
+
+      const totalRecurringExpenses = recurringExpenses.map(expense => expense.amount).reduce((acc, amount) => acc + amount, 0);
+      const totalExtraExpenses = extraExpenses.map(expense => expense.amount).reduce((acc, amount) => acc + amount, 0);
+      const totalInvestments = investments.map(expense => expense.amount).reduce((acc, amount) => acc + amount, 0);
+
 
       const accountResponse = {
         account: {
@@ -30,7 +35,10 @@ async function getAccountByUsername(req, res) {
           username: account.username,
           salary: account.salary,
           createdAt: account.createdAt,
-          updatedAt: account.updatedAt
+          updatedAt: account.updatedAt,
+          totalRecurringExpenses: totalRecurringExpenses,
+          totalExtraExpenses: totalExtraExpenses,
+          totalInvestments: totalInvestments
         },
         recurringExpenses,
         extraExpenses,
@@ -46,6 +54,6 @@ async function getAccountByUsername(req, res) {
   }
 }
 
-module.exports = {
+export default {
   getAccountByUsername,
 };

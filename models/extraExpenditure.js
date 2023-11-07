@@ -1,6 +1,6 @@
 // Import necessary modules and your Sequelize instance
-const { DataTypes, Sequelize } = require('sequelize');
-const sequelize = require('../config/sequelize'); // Import your Sequelize instance
+import { DataTypes, Sequelize } from 'sequelize';
+import sequelize from '../config/sequelize.js'; // Import your Sequelize instance
 
 // Define the "ExtraExpense" model
 const ExtraExpense = sequelize.define('ExtraExpense', {
@@ -21,10 +21,14 @@ const ExtraExpense = sequelize.define('ExtraExpense', {
     type: DataTypes.FLOAT,
     allowNull: false,
   },
+  description: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
 }, {
   tableName: 'extra_expenses', // Specify the table name here
   timestamps: true, // Enable createdAt and updatedAt columns
 });
 
 
-module.exports = ExtraExpense;
+export default ExtraExpense;

@@ -672,3 +672,4 @@ info: [{"id":1,"name":"Expense 1","amount":100.5,"createdAt":"2023-10-28T03:35:1
 [2023-10-28T01:46:41.196Z] [32minfo[39m: Server is running on port 3000
 [2023-10-28T01:46:42.259Z] [32minfo[39m: Server is running on port 3000
 [2023-10-28T01:46:53.932Z] [32minfo[39m: Server is running on port 3000
+[2023-11-03T15:27:19.508Z] [32minfo[39m: Server is running on port 3000

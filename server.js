@@ -1,14 +1,14 @@
-const express = require('express');
-const bodyParser = require('body-parser');
+import express from 'express';
+import { json } from 'body-parser';
 const app = express();
 const port = process.env.PORT || 3000;
-const logger = require('./middleware/logger');
+import logger from './middleware/logger.js';
 
 const entities = {
-    Account: require('./models/account'),
-    RecurringExpense: require('./models/recurringExpense'),
-    ExtraExpense: require('./models/extraExpenditure'),
-    Investment: require('./models/investment')
+    Account: require('./models/account').default,
+    RecurringExpense: require('./models/recurringExpense').default,
+    ExtraExpense: require('./models/extraExpenditure').default,
+    Investment: require('./models/investment').default
 };
 
 //------------------------model associations - start ---------------------------------------
@@ -20,14 +20,14 @@ entities.ExtraExpense.belongsTo(entities.Account, { foreignKey: 'account_id' });
 entities.Investment.belongsTo(entities.Account, { foreignKey: 'account_id' });
 //------------------------ model associations - end ----------------------------------------
 
-app.use(bodyParser.json());
+app.use(json());
 
 // Define routes
-const apiRoutes = require('./routes/api');
+import apiRoutes from './routes/api.js';
 app.use('/api', apiRoutes);
 
 // Error handling middleware
-const errorMiddleware = require('./middleware/error');
+import errorMiddleware from './middleware/error.js';
 app.use(errorMiddleware);
 
 app.listen(port, () => {

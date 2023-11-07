@@ -1,5 +1,5 @@
-const Account = require('../models/account');
-const logger = require('./logger');
+import { findOne } from '../models/account.js';
+import logger from './logger.js';
 
 // Define a middleware function for account validation
 async function validateAccount(req, res, next) {
@@ -11,7 +11,7 @@ async function validateAccount(req, res, next) {
             return res.status(400).json({ message: 'Username parameter is missing in the request.' });
         }
 
-        const account = await Account.findOne({
+        const account = await findOne({
             where: { username: usernameToFind }
         });
 
@@ -28,6 +28,6 @@ async function validateAccount(req, res, next) {
     }
 }
 
-module.exports = {
+export default {
     validateAccount
 };

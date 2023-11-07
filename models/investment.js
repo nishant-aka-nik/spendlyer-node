@@ -1,6 +1,6 @@
 // Import necessary modules and your Sequelize instance
-const { DataTypes, Sequelize } = require('sequelize');
-const sequelize = require('../config/sequelize'); // Import your Sequelize instance
+import { DataTypes, Sequelize } from 'sequelize';
+import sequelize from '../config/sequelize.js'; // Import your Sequelize instance
 
 // Define the "Investment" model
 const Investment = sequelize.define('Investment', {
@@ -31,4 +31,4 @@ const Investment = sequelize.define('Investment', {
 });
 
 
-module.exports = Investment;
+export default Investment;

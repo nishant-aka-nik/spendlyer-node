@@ -1,7 +1,7 @@
 // Import necessary modules and your Sequelize instance
-const { DataTypes, Sequelize } = require('sequelize');
-const sequelize = require('../config/sequelize'); // Import your Sequelize instance
-const RecurringExpense = require('./recurringExpense'); // Correct import path
+import { DataTypes, Sequelize } from 'sequelize';
+import sequelize from '../config/sequelize.js'; // Import your Sequelize instance
+import RecurringExpense from './recurringExpense.js'; // Correct import path
 
 // Define the "Account" model
 const Account = sequelize.define('Account', {
@@ -27,4 +27,4 @@ const Account = sequelize.define('Account', {
   timestamps: true, // Enable createdAt and updatedAt columns
 });
 
-module.exports = Account;
+export default Account;

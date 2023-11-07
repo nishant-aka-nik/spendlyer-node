@@ -1,4 +1,4 @@
-const { Sequelize } = require('sequelize');
+import { Sequelize } from 'sequelize';
 
 // Replace with your database configuration
 const sequelize = new Sequelize('spendlyzer', 'root', 'qwertyawsd', {
@@ -18,4 +18,4 @@ sequelize.authenticate()
 sequelize.sync();
 
 
-module.exports = sequelize;
+export default sequelize;

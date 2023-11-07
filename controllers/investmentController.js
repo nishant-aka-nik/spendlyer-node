@@ -1,10 +1,10 @@
-const Investment = require('../models/investment');
-const Account = require('../models/account');
-const logger = require('../middleware/logger');
+import investmentModel from '../models/investment.js';
+import Account from '../models/account.js';
+import logger from '../middleware/logger.js';
 
 async function getInvestmentByAccountId(accountIdToFind) {
   try {
-    const investment = await Investment.findAll({
+    const investment = await investmentModel.findAll({
       where: {
         account_id: accountIdToFind
       },
@@ -15,8 +15,10 @@ async function getInvestmentByAccountId(accountIdToFind) {
 
       const investmentRes = investment.map(investment => {
         return {
+          id: investment.dataValues.id,
           name: investment.dataValues.name,
           amount: investment.dataValues.amount,
+          type: investment.dataValues.type,
           updatedAt: investment.dataValues.updatedAt
         };
       });
@@ -35,7 +37,7 @@ async function getInvestmentByAccountId(accountIdToFind) {
 async function addInvestment(req, res) {
   try {
     const { name, amount, type } = req.body;
-    const investment = await Investment.create({ account_id: req.account_id, name, amount, type });
+    const investment = await investmentModel.create({ account_id: req.account_id, name, amount, type });
     res.status(201).json(investment);
   } catch (error) {
     console.error(error);
@@ -43,7 +45,29 @@ async function addInvestment(req, res) {
   }
 }
 
-module.exports = {
+async function deleteInvestment(req, res) {
+  try {
+    const id = req.params.id;
+
+    // Assuming you've already imported and defined the RecurringExpense model
+    const deletedCount = await investmentModel.destroy({
+      where: { id, account_id: req.account_id}
+    });
+
+    if (deletedCount > 0) {
+      res.status(204).send(); // 204 No Content for a successful deletion
+    } else {
+      res.status(404).json({ error: 'Investment not found' });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Failed to delete investment' });
+  }
+
+}
+
+export default {
   getInvestmentByAccountId,
-  addInvestment
+  addInvestment,
+  deleteInvestment
 };
