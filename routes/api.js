@@ -7,7 +7,9 @@ const accountValidation = require('../middleware/accountValidation');
 
 // Define API routes
 //-------------------------account----------------
-router.get('/user/:username', accountController.getAccountByUsername);
+router.get('/user/:username', accountController.getAccountDetailsByUsername);
+router.post('/user/create', accountController.createAccount);
+router.delete('/user/:username/:password',accountController.deleteAccount)
 //-------------------------account----------------
 
 //-------------------------investment----------------

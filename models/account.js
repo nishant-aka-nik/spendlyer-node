@@ -18,10 +18,20 @@ const Account = sequelize.define('Account', {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  password: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    defaultValue: false
+  },
   salary: {
     type: DataTypes.INTEGER,
     allowNull: true,
   },
+  hasCreditCard: {
+    type: DataTypes.BOOLEAN,
+    allowNull: false,
+    defaultValue: false
+  }
 }, {
   tableName: 'account', // Specify the table name here
   timestamps: true, // Enable createdAt and updatedAt columns

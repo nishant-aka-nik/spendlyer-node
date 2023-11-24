@@ -21,6 +21,11 @@ const RecurringExpense = sequelize.define('RecurringExpense', {
     type: DataTypes.FLOAT,
     allowNull: false,
   },
+  category: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    defaultValue: 'uncategorized'
+  },
 }, {
   tableName: 'recurring_expenses', // Specify the table name here
   timestamps: true, // Enable createdAt and updatedAt columns
